@@ -179,10 +179,10 @@ Returns:
 - nil if neither condition is met."
   (let ((file-name (buffer-file-name (buffer-base-buffer))))
     (cond ((derived-mode-p 'dired-mode)
-           default-directory)
+           (file-name-as-directory (expand-file-name default-directory)))
 
           (file-name
-           (file-name-directory file-name)))))
+           (expand-file-name (file-name-directory file-name))))))
 
 (defun dir-config--find-dominating-file (file-names start-dir)
   "Locate the first available file from FILE-NAMES in the directory hierarchy.
