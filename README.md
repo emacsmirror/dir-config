@@ -33,8 +33,8 @@ To install `dir-config` from MELPA:
   :custom
   (dir-config-file-names '(".dir-config.el"))
   (dir-config-allowed-directories '("~/src" "~/projects"))
-  :config
-  (dir-config-mode))
+  :init
+  (dir-config-mode 1))
 ```
 
 Note:
