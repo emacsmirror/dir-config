@@ -87,21 +87,18 @@ Disabling `.dir-locals.el` ensures that only the `.dir-config.el` files managed 
 
 Here is the difference between with `.dir-locals.el` and the `.dir-config.el` files:
 
-- `.dir-locals.el` (built-in):
-  - Primarily used for setting per-directory local variables (static).
-  - The syntax of `.dir-locals.el` relies heavily on nested lists and alist structures which can quickly become difficult to read and maintain.
-  - The configuration in `dir-locals.el` is inherently static unless dynamic behavior is explicitly added using `eval`. Here is an example of `.dir-locals.el`:
-    ```
-    ((nil . ((eval . (progn
-                       (setq-local my-variable t)
-                       (message "Hello world"))))))
-    ```
-  - Only a single `.dir-locals.el` file can be specified by modifying the `dir-locals-file` variable.
+# .dir-locals.el (built-in):
 
-- `.dir-config.el` (this package):
-  - Loads and evaluates Emacs Lisp code (dynamic by default).
-  - `.dir-config.el` files are easier to maintain, as they use standard Elisp code instead of nested alists.
-  - Allows specifying multiple `.dir-config.el` file names by adding them to the `dir-config-file-names` list.
+- Primarily used for setting per-directory local variables (static).
+- The syntax of `.dir-locals.el` relies heavily on nested lists and alist structures which can quickly become difficult to read and maintain.
+- The configuration in `dir-locals.el` is inherently static unless dynamic behavior is explicitly added using `eval`.
+- Only a single `.dir-locals.el` file can be specified by modifying the `dir-locals-file` variable.
+
+#### .dir-config.el (this package):
+
+- Loads and evaluates Emacs Lisp code (dynamic by default).
+- `.dir-config.el` files are easier to maintain, as they use standard Elisp code instead of nested alists.
+- Allows specifying multiple `.dir-config.el` file names by adding them to the `dir-config-file-names` list.
 
 ### Wouldn't it be better to move .dir-config.el Elisp code into Emacs init?
 
@@ -125,6 +122,7 @@ This program is free software: you can redistribute it and/or modify it under th
 - [dir-config.el @MELPA](https://melpa.org/#/dir-config)
 
 Other Emacs packages by the same author:
+
 - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d): This repository hosts a minimal Emacs configuration designed to serve as a foundation for your vanilla Emacs setup and provide a solid base for an enhanced Emacs experience.
 - [compile-angel.el](https://github.com/jamescherti/compile-angel.el): **Speed up Emacs!** This package guarantees that all .el files are both byte-compiled and native-compiled, which significantly speeds up Emacs.
 - [outline-indent.el](https://github.com/jamescherti/outline-indent.el): An Emacs package that provides a minor mode that enables code folding and outlining based on indentation levels for various indentation-based text files, such as YAML, Python, and other indented text files.
